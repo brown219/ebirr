@@ -1,10 +1,55 @@
 import datetime
+# import re
 def buy_airtime():
     cash = 1000
     x =datetime.datetime.now()
     amount = int(input("Enter amount: "))
     balance = cash - amount
     print("Airtime", amount, "Bought on",x,"at","New balance is",balance )
+# def validate_password(password):
+#     # Check length
+#     if len(password) < 5:
+#         return False, "Password is invalid"
+#     sys.exit()
+    
+#     # Check for digits
+#     if not re.search(r"[0-9]", password):
+#         return False, "Password must contain at least one digit."
+    
+#     # Check for special characters
+#     if not re.search(r"[#*]", password):
+#         return False, "Password must contain at least one special character."
+    
+#     return True, "Password is Success."
+
+# # Example usage
+# password = input("Enter a password to validate: ")
+# is_valid, message = validate_password(password)
+# print(message)
+
+import re
+import sys
+
+def validate_password(password):
+    # Check length
+    if len(password) < 5:
+        print("Password must be at least 5 characters long.")
+        sys.exit()
+    # Check for digits
+    if not re.search(r"[0-9]", password):
+        print("Password must contain at least one digit.")
+        sys.exit()
+    
+    # Check for special characters
+    if not re.search(r"[#*]", password):
+        print("Password must contain at least one special character.")
+        sys.exit()
+    
+    print("Password is valid.")
+
+# Example usage
+password = input("Enter a password to validate: ")
+validate_password(password)
 
 
 def deposit():
@@ -32,7 +77,7 @@ def withdraw():
     amount = int(input("Enter amount: "))
     if amount > 0 and amount <= cash:
       remaining_cash = cash - amount
-      print("cash", amount, "Withdrawn successfully from agent number",agent,"on",x,"at","balance is: " )
+      print("cash", amount, "Withdrawn successfully from agent number",agent,"on",x,"at","balance is: ",remaining_cash )
     else:
       print("Insufficient Balance")
 
